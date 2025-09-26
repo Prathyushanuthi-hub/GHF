@@ -1,0 +1,84 @@
+# Java Coding Standards
+
+## 1. Naming Conventions
+- **Classes**:
+  - Use `PascalCase` for class names.
+  - Class names should be nouns and clearly describe the purpose of the class.
+  - Example: `CustomerService`, `OrderProcessor`
+- **Interfaces**:
+  - Use `PascalCase` for interface names.
+  - Interface names should generally be adjectives or nouns.
+  - Example: `Runnable`, `Serializable`
+- **Methods**:
+  - Use `camelCase` for method names.
+  - Method names should be verbs or verb phrases.
+  - Example: `calculateTotal()`, `getCustomerName()`
+- **Variables**:
+  - Use `camelCase` for variable names.
+  - Variable names should be meaningful and self-descriptive.
+  - Example: `totalAmount`, `userName`
+- **Constants**:
+  - Use `UPPER_SNAKE_CASE` for constants.
+  - Constants should be declared as `static final`.
+  - Example: `MAX_RETRIES`, `DEFAULT_TIMEOUT`
+- **Packages**:
+  - Use `lowercase` for package names.
+  - Package names should represent the hierarchy and organization of the codebase.
+  - Example: `com.example.orders`, `org.company.project`
+
+## 2. Code Layout
+- **Indentation**:
+  - Use 4 spaces per indentation level. Avoid using tabs.
+- **Braces**:
+  - Place opening braces on the same line as the declaration.
+  - Example:
+    ```java
+    if (condition) {
+        // code
+    } else {
+        // code
+    }
+    ```
+- **Line Length**:
+  - Limit all lines to a maximum of 100 characters.
+- **Blank Lines**:
+  - Use blank lines to separate logically related blocks of code.
+  - Separate method definitions with a single blank line.
+- **File Naming**:
+  - Use `PascalCase` for file names, matching the class or interface name.
+  - Example: `CustomerService.java`, `OrderProcessor.java`
+
+## 3. Commenting
+- **Javadoc Comments**:
+  - Use Javadoc for class, interface, method, and field documentation.
+  - Example:
+    ```java
+    /**
+     * Calculates the total amount for the order.
+     * @param price The price of the item.
+     * @param quantity The quantity of items.
+     * @return The total amount.
+     */
+    public double calculateTotal(double price, int quantity) {
+        return price * quantity;
+    }
+    ```
+- **Inline Comments**:
+  - Use inline comments sparingly to explain complex or non-obvious code.
+  - Place comments on the line above the code they refer to.
+  - Example:
+    ```java
+    // Increment the total count
+    totalCount++;
+    ```
+
+## 4. Exception Handling
+- Use specific exceptions instead of generic `Exception` or `Throwable`.
+- Always clean up resources (e.g., files, database connections) in a `finally` block or use `try-with-resources`.
+- Example:
+  ```java
+  try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+      // Read file content
+  } catch (IOException e) {
+      logger.error("Failed to read file", e);
+  }
